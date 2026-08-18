@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+google-genai
+python-dotenv
+httpx
+pdfplumber
+python-docx
+networkx
+matplotlib
+psycopg[binary]
+chromadb==1.5.5
+cryptography
+spacy
