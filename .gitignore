@@ -1,0 +1,14 @@
+node_modules/
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.pytest_cache/
+frontend/dist/
+chroma_db/
+backend/discourse_mock_db.json
+config.json
+*.log
+.DS_Store
