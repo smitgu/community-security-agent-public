@@ -3,7 +3,10 @@
 Community Security Agent is a local-first web application for collecting, reviewing,
 and visualising blockchain-security incident intelligence.
 
-The project is maintained by contributors from the BGIN community.
+The project is developed and maintained by researchers and contributors
+working with the [Cyber SMART Research Center](https://cybersmartcenter.org/),
+a U.S. National Science Foundation Industry-University Cooperative Research
+Center (IUCRC).
 
 The application can:
 
@@ -108,7 +111,7 @@ docker compose down
 
 ## License
 
-Copyright (c) 2026 BGIN Community Security Agent Contributors.
+Copyright (c) 2026 Community Security Agent Contributors.
 
 This project is licensed under the [MIT License](LICENSE). Third-party
 dependencies installed through the Python and npm package manifests remain
