@@ -39,6 +39,14 @@ and your legal basis for processing it.
 - Discourse integration uses a clearly labelled synthetic local mock when no
   external instance is configured.
 
+See [`docs/architecture.md`](docs/architecture.md) for the current data flow,
+trust boundaries, and target direction.
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for project scope, review expectations,
+and the pull request process.
+
 ## Prerequisites
 
 - Python 3.11 or newer
