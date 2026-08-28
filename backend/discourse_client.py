@@ -1,6 +1,7 @@
 import os
 import re
 import json
+from datetime import datetime, timezone
 import httpx
 import logging
 from dotenv import load_dotenv
@@ -127,10 +128,12 @@ class DiscourseClient:
             existing_idx = next((i for i, x in enumerate(db_data) if x["title"] == title), None)
             
             post_data = {
-                "id": existing_idx if existing_idx is not None else len(db_data) + 1,
+                # Keep the original topic id on update; new topics get the next id.
+                "id": db_data[existing_idx]["id"] if existing_idx is not None
+                      else max((x.get("id", 0) for x in db_data), default=0) + 1,
                 "title": title,
                 "raw": raw_content,
-                "created_at": "Just now",
+                "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 "username": "community_security_agent"
             }
             
