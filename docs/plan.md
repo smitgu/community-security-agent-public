@@ -68,6 +68,20 @@ assessments that improve later matching and evaluation.
 **Why it matters:** Shared evidence becomes more useful when others can verify
 and reuse it.
 
+### Traceable provenance for shared findings
+
+**Perspective:** Community contributor / receiving organisation
+
+**Today:** A synced finding keeps only "Discourse Topic #N"; publisher, time, and the
+original evidence hash are lost, and every `[INCIDENT]` post is trusted equally.
+
+**Ideally:** Every IoC carries a provenance record (source kind, publisher, topic/post id,
+content hash, fetched_at) and a trust weight that is computed when the feed is read, from
+corroboration by other organisations, rather than stored as an editable score.
+
+**Why it matters:** Prioritisation and evidence views are only as good as the provenance
+underneath; corroboration is what lets an organisation act on a stranger's finding.
+
 ## Agreed direction
 
 Move reviewed ideas here when they are ready to guide implementation. Include a
