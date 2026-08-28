@@ -133,6 +133,11 @@ async def chat_handler(msg: ChatMessage, current_user: dict = Depends(get_curren
     text = msg.message.strip()
     intent = classify_intent(text)
     
+    if intent == "report":
+        # The router labels pasted incident reports as "report"; decide
+        # whether to save them (contribute) or only analyse (query).
+        intent = classify_contribute_or_query(text)
+
     if intent in ["query", "contribute"]:
         return await process_text_report(text, intent)
     elif intent == "top5":
