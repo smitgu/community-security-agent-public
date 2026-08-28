@@ -265,7 +265,12 @@ def _scrub(text: str, ner_entities: list[DetectedEntity]) -> tuple[str, dict[str
         prefix = label.upper()
         token = pseudonymise(orig, prefix=prefix)
         mapping[token] = orig
-        scrubbed = scrubbed.replace(orig, token)
+        # Replace whole tokens only, so an entity like "US" does not eat the
+        # inside of "USDC" or a contract address.
+        scrubbed = re.sub(
+            r"(?<![A-Za-z0-9_])" + re.escape(orig) + r"(?![A-Za-z0-9_])",
+            token, scrubbed,
+        )
 
     return scrubbed, mapping
 
@@ -282,7 +287,7 @@ def generalise_salary(text: str) -> str:
         except Exception:
             return m.group(0)
     # Matches figures like $134,500 per annum, $134,500 p.a., or just $134500
-    return re.sub(r'\$([\d,]+)(?:\.\d+)?\s*(?:per annum|p\.a\.)?', _band, text)
+    return re.sub(r'\$([\d,]+)(?:\.\d+)?(?:\s*(?:per annum|p\.a\.))?', _band, text)
 
 def generalise_dates(text: str) -> str:
     """Round dates and timestamps to the nearest quarter (e.g. Q1 2024)."""
