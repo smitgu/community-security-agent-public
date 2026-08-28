@@ -27,7 +27,7 @@ from core_agent import (
     extract_text_from_docx, build_ioc_summary, format_audit_report,
     _chroma_index_incident, _chroma_index_policy
 )
-from sensitivity import sensitivity_gate, ConfidentialDocumentError
+from sensitivity import sensitivity_gate, deanonymize, ConfidentialDocumentError
 from discourse_client import DiscourseClient
 
 logging.basicConfig(level=logging.INFO)
